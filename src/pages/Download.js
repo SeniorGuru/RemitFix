@@ -21,7 +21,6 @@ import Page from '../components/Page';
 import { connect } from 'react-redux';
 //
 import PropType from 'prop-types';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 import { styled } from '@mui/material/styles';
 import { makeStyles } from '@mui/styles';
@@ -62,9 +61,6 @@ const Download = (props) => {
                 <DLogo sx = {{ margintLeft:'150px'}}/>
             </Stack>
             <Grid className={classes.columnGrid} alignItems='center' justifyContent='center'>
-                <Grid item xs={12}>
-                    <CheckCircleOutlineIcon sx={{ width: '130px', height: '130px', color: '#00cc00' }} />
-                </Grid>
                 <Grid item xs={12}>
                     <Typography sx={{ fontWeight: '700', fontSize: '30px' }}>Thank you for using RemitFix!</Typography>
                 </Grid>

@@ -14,8 +14,6 @@ import { GREEN } from '../static/constant';
 
 import { makeStyles } from '@mui/styles';
 
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-
 const RootStyle = styled(Page)(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     display: 'flex',
@@ -98,11 +96,6 @@ export default function Resetpass() {
       <ContainerStyle>
         <Container maxWidth="sm">
           <ContentStyle>
-            <Grid container className= {classes.columnGrid}>
-              <Grid item xs={12}>
-                <CheckCircleOutlineIcon sx={{ width: '130px', height: '130px', color: '#00cc00' }} />
-              </Grid>
-            </Grid>
             <Stack sx={{ mt: 0 }}>
               <Typography sx={{ fontSize: "30px" }} align="center" >
                 Password reset email sent
