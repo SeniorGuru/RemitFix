@@ -31,6 +31,7 @@ import AddUser from '../../../../components/Private/Business/Users/AddUser';
 const useStyles = makeStyles(() => ({
     root : {
         display : 'flex' ,
+        height : '100vh',
     },
     container: {
         padding : 20

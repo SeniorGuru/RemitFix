@@ -16,16 +16,16 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-const Transfer = (props) => {
+const Pay = (props) => {
 
     const classes = useStyles();
 
     return (
         <Box className={classes.root}>
-            <Header/>
+            <Header index={4}/>
             <PayForm/>
         </Box>
     );
 }
 
-export default Transfer;
+export default Pay;

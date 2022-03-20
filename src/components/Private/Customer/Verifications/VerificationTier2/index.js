@@ -21,7 +21,6 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 const useStyles = makeStyles((theme) => ({
     root : {
-        height : 1500,
     },
     gradient : {
         background : 'linear-gradient(to right, #5F42F0 3%, #8F5FDD 90%)',

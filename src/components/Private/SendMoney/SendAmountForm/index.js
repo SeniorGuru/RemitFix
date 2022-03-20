@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     root : {
         background : 'white',
         width : '720px',
-        height : '768px',
+        height : 'calc(100vh - 80px)',
         paddingLeft : '92px',
         paddingRight : '92px',
         paddingTop : '30px',

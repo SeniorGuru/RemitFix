@@ -21,8 +21,6 @@ import { makeStyles }  from '@mui/styles' ;
 
 const useStyles = makeStyles((theme) => ({
     root : {
-        height : 1500,
-
         "& .MuiFormGroup-root" : {
             border : '1px solid lightgray',
             borderRadius : 5,

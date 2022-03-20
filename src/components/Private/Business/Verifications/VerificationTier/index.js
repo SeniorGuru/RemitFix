@@ -21,7 +21,6 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 const useStyles = makeStyles((theme) => ({
     root : {
-        height : 1500,
     },
     gradient : {
         background : 'linear-gradient(to right, #5F42F0 3%, #8F5FDD 90%)',
@@ -47,8 +46,8 @@ const useStyles = makeStyles((theme) => ({
         textAlign : 'center'
     },
     label : {
-        paddingLeft : '35%',
-        paddingRight : '35%',
+        paddingLeft : '30%',
+        paddingRight : '30%',
 
         textAlign : 'center',
         color : 'white'
@@ -59,9 +58,9 @@ const useStyles = makeStyles((theme) => ({
         background : 'white',
         padding : 40,
 
-        width : '50%',
+        width : '60%',
 
-        marginLeft : '25%',
+        marginLeft : '20%',
 
         top : "80%",
 

@@ -29,7 +29,7 @@ const SendRecipient = () => {
             <Box sx={{width : '100%'}}>
                 <Grid container>
                     <Grid item xs={12} >
-                        <Header/>
+                        <Header index={1}/>
                         <Routes>
                             <Route path="*" element={<AddRecipient />} />
                             <Route path="/add" element={<AddRecipient />} />

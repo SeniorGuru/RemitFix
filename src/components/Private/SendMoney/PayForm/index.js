@@ -37,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
     cardList : {
         marginLeft : '80px',
         marginRight : '80px',
-        marginBottom : '30px',
     },
     card : {
         padding : '10px',
@@ -69,7 +68,6 @@ const useStyles = makeStyles((theme) => ({
 const TransferForm = (props) => {
 
     const classes = useStyles();
-    const navigate = useNavigate();
 
     const [index, setIndex] = useState(0);
 

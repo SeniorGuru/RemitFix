@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import CountrySelect from "../../../../Common/CountrySelect";
+import MenuBar from "../../../../Common/MenuBar";
 
 import {
     Box,
@@ -23,8 +24,6 @@ const useStyles = makeStyles((theme) => ({
     root : {
         background : '#F4F6F8',
         display : 'flex',
-        paddingLeft : '25%',
-        paddingRight : '25%',
         flexDirection : 'column',
         "& .MuiOutlinedInput-input" : {
         },
@@ -56,6 +55,8 @@ const useStyles = makeStyles((theme) => ({
         paddingLeft : '92px',
         paddingRight : '92px',
         paddingBottom : '130px',
+        marginLeft : '25%',
+        marginRight : '25%',
     },
     title : {
         color : '#1B262C',
@@ -108,60 +109,6 @@ const AddCustomerRecipient = () => {
     const classes = useStyles();
     const navigate = useNavigate();
 
-    const [month, setMonth] = useState("Jan");
-
-    const months = [
-        {
-            label : 'Jan',
-            value : 'Jan',
-        },
-        {
-            label : 'Feb',
-            value : 'Feb',
-        },
-        {
-            label : 'Mar',
-            value : 'Mar',
-        },
-        {
-            label : 'Apr',
-            value : 'Apr',
-        },
-        {
-            label : 'May',
-            value : 'May',
-        },
-        {
-            label : 'Jun',
-            value : 'Jun',
-        },
-        {
-            label : 'Jul',
-            value : 'Jul',
-        },
-        {
-            label : 'Aug',
-            value : 'Aug',
-        },
-        {
-            label : 'Sep',
-            value : 'Sep',
-        },
-        {
-            label : 'Oct',
-            value : 'Oct',
-        },
-        {
-            label : 'Nov',
-            value : 'Nov',
-        },
-        {
-            label : 'Dec',
-            value : 'Dec',
-        },
-    ];
-
-
     const mockList = [
             'Family or friends support',
             'Property Payment',
@@ -174,12 +121,10 @@ const AddCustomerRecipient = () => {
         navigate('/private/customer/recipients/details');
     }
 
-    const handelChange = (e) => {
-        setMonth(e.target.value);
-    }
-
     return(
         <Box className = {classes.root}>
+            <MenuBar/>
+
             <Box className={classes.formContent}>
                 <Box className={classes.title}>
                     Add recipient details
@@ -231,45 +176,6 @@ const AddCustomerRecipient = () => {
                         </Grid>
                     </Grid>
 
-                    <Box className={classes.subTitle}>
-                        Date of birth
-                    </Box>
-                    <Divider/>
-
-                    <Grid container spacing={2}>
-                        <Grid item xs={4}>
-                            <InputLabel >Month</InputLabel>
-                            <FormControl fullWidth>
-                                <TextField 
-                                    select
-                                    value={month}
-                                    onChange={(e) => handelChange(e)}
-                                    SelectProps={{
-                                      native: true,
-                                    }}
-                                >
-                                    {months.map((month, index) => (
-                                        <option key={index} value={month.value}>
-                                            {month.label}
-                                        </option>
-                                    ))}
-                                </TextField>
-                            </FormControl>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <InputLabel >Day</InputLabel>
-                            <FormControl fullWidth variant="standard">
-                                <TextField id="outlined-basic" variant="outlined" />
-                            </FormControl>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <InputLabel >Year</InputLabel>
-                            <FormControl fullWidth variant="standard">
-                                <TextField id="outlined-basic" variant="outlined" />
-                            </FormControl>
-                        </Grid>
-                    </Grid>
-                    
                     <Box className={classes.subTitle}>
                         Bank details (optional)
                     </Box>

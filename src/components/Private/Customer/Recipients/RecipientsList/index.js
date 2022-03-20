@@ -25,11 +25,14 @@ import  {
 } from '@mui/icons-material' ;
 
 import { makeStyles } from '@mui/styles';
+import LeftSideBar from '../../../../Common/LeftSideBar/Customer';
+import MenuBar from '../../../../Common/MenuBar';
 
 const useStyles = makeStyles((theme) => ({
     root : {
         background : '#F3F5F7',
-        padding: 20,
+        display : 'flex',
+        height : '100vh',
 
         "& .MuiTableBody-root" : {
             "& .MuiTableRow-root" : {
@@ -169,134 +172,151 @@ const RecipientsList = () => {
 
     return (
         <Box className={classes.root}>
-            <Box className={classes.transfers}>
-                <Box>
-                    Recipients
-                </Box>
-                <Box >
-                    <Button variant={'contained'} size={'small'} onClick={() => handleAddClick()}>
-                        Add new recipient
-                    </Button>
-                </Box>
-            </Box> 
-            <Box className={classes.selectForm}>
-                <Grid container spacing={1}>
-                    <Grid item xs={8}>
-                        <Grid container spacing={1}>
-                            <Grid item xs={4}>
-                                <FormControl 
-                                    fullWidth
-                                >
-                                    <InputLabel >Service type</InputLabel>
-                                    <Select
-                                        size='small'
-                                        label={'Service type'}
-                                        value={'all'}
-                                        fullWidth
-                                    >
-                                        <MenuItem value={'all'}>All</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </Grid>
-                            <Grid item xs={4}>
-                                <FormControl 
-                                    fullWidth
-                                >
-                                    <InputLabel >Country</InputLabel>
-                                    <Select
-                                        size='small'
-                                        label={'Country'}
-                                        value={'all'}
-                                        fullWidth
-                                    >
-                                        <MenuItem value={'all'}>All Countries</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </Grid>
-                            <Grid item xs={4}>
-                                <FormControl 
-                                    fullWidth
-                                >
+            <LeftSideBar />
+            <Box>
+
+                <MenuBar />
+
+                <Grid container sx={{width : '100%',padding:'20px'}} >
+                    <Grid item xs={12}>
+                        <Box className={classes.transfers}>
+                            <Box>
+                                Recipients
+                            </Box>
+                            <Box >
+                                <Button variant={'contained'} size={'small'} onClick={() => handleAddClick()}>
+                                    Add new recipient
+                                </Button>
+                            </Box>
+                        </Box> 
+                    </Grid>
+
+                    <Grid item xs={12}>
+                        <Box className={classes.selectForm}>
+                            <Grid container spacing={1}>
+                                <Grid item xs={8}>
+                                    <Grid container spacing={1}>
+                                        <Grid item xs={4}>
+                                            <FormControl 
+                                                fullWidth
+                                            >
+                                                <InputLabel >Service type</InputLabel>
+                                                <Select
+                                                    size='small'
+                                                    label={'Service type'}
+                                                    value={'all'}
+                                                    fullWidth
+                                                >
+                                                    <MenuItem value={'all'}>All</MenuItem>
+                                                </Select>
+                                            </FormControl>
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <FormControl 
+                                                fullWidth
+                                            >
+                                                <InputLabel >Country</InputLabel>
+                                                <Select
+                                                    size='small'
+                                                    label={'Country'}
+                                                    value={'all'}
+                                                    fullWidth
+                                                >
+                                                    <MenuItem value={'all'}>All Countries</MenuItem>
+                                                </Select>
+                                            </FormControl>
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <FormControl 
+                                                fullWidth
+                                            >
+                                                <TextField
+                                                    size='small'
+                                                    type='date'
+                                                    label={'Date added'}
+
+                                                    value={"2022-10-01"}
+                                                    fullWidth
+                                                />
+                                            </FormControl>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                                <Grid item xs={4}>
                                     <TextField
                                         size='small'
-                                        type='date'
-                                        label={'Date added'}
-
-                                        value={"2022-10-01"}
+                                        placeholder="Search by recipient's name or phone"
+                                        
+                                        InputProps={{
+                                            startAdornment : <InputAdornment>
+                                                    <Search />
+                                                </InputAdornment>
+                                        }}
                                         fullWidth
                                     />
-                                </FormControl>
+                                </Grid>
                             </Grid>
-                        </Grid>
+                        </Box> 
                     </Grid>
-                    <Grid item xs={4}>
-                        <TextField
-                            size='small'
-                            placeholder="Search by recipient's name or phone"
-                            
-                            InputProps={{
-                                startAdornment : <InputAdornment>
-                                        <Search />
-                                    </InputAdornment>
-                            }}
-                            fullWidth
-                        />
+
+                    <Grid item xs={12}>
+                        <Box className={classes.outgoingTable}>
+                            <TableContainer>
+                                <Table>
+                                    <TableHead>
+                                        <TableRow>
+                                            {
+                                                headField.map((item , index) => {
+                                                    return (
+                                                        <TableCell key={index}>
+                                                            {item}
+                                                        </TableCell>
+                                                    )
+                                                })
+                                            }
+                                        </TableRow>
+                                    </TableHead>
+                                    <TableBody>
+                                        {
+                                            mockList.map((item, index) => {
+                                                return (
+                                                    <TableRow key={index} onClick={() => handleDetailClick()}>
+                                                        <TableCell>
+                                                            <Box className={classes.black}>
+                                                                { item.fullname.name }
+                                                            </Box>
+                                                            <Box className={classes.gray}>
+                                                                { item.fullname.id }
+                                                            </Box>
+                                                        </TableCell>
+                                                        <TableCell>
+                                                            { item.country }
+                                                        </TableCell>
+                                                        <TableCell>
+                                                            <Box className={classes.black}>
+                                                                { item.type.status }
+                                                            </Box>
+                                                            <Box className={classes.gray}>
+                                                                { item.type.description }
+                                                            </Box>
+                                                        </TableCell>
+                                                        <TableCell >
+                                                            <Button color={'primary'}>
+                                                                Send Money
+                                                            </Button>
+                                                        </TableCell>
+                                                    </TableRow>
+                                                )
+                                            })
+                                        }
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
+                        </Box>
                     </Grid>
                 </Grid>
-            </Box> 
-            <Box className={classes.outgoingTable}>
-                <TableContainer>
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                {
-                                    headField.map((item , index) => {
-                                        return (
-                                            <TableCell key={index}>
-                                                {item}
-                                            </TableCell>
-                                        )
-                                    })
-                                }
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {
-                                mockList.map((item, index) => {
-                                    return (
-                                        <TableRow key={index} onClick={() => handleDetailClick()}>
-                                            <TableCell>
-                                                <Box className={classes.black}>
-                                                    { item.fullname.name }
-                                                </Box>
-                                                <Box className={classes.gray}>
-                                                    { item.fullname.id }
-                                                </Box>
-                                            </TableCell>
-                                            <TableCell>
-                                                { item.country }
-                                            </TableCell>
-                                            <TableCell>
-                                                <Box className={classes.black}>
-                                                    { item.type.status }
-                                                </Box>
-                                                <Box className={classes.gray}>
-                                                    { item.type.description }
-                                                </Box>
-                                            </TableCell>
-                                            <TableCell >
-                                                <Button color={'primary'}>
-                                                    Send Money
-                                                </Button>
-                                            </TableCell>
-                                        </TableRow>
-                                    )
-                                })
-                            }
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-            </Box>              
+                
+            </Box>  
         </Box>
     )
 }

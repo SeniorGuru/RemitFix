@@ -21,7 +21,8 @@ import {
 
 const useStyles = makeStyles((theme) => ({
     root : {
-        display : 'flex'
+        display : 'flex',
+        height : '100vh',
     } ,
     verify : {
         fontSize : 25,

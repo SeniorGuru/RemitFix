@@ -1,11 +1,10 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux' ;
 
 import logoImg from '../../../../../assets/dark_logo.png';
-import clsx from 'clsx';
 
 import { makeStyles } from '@mui/styles';
 
@@ -85,15 +84,16 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = (props) => {
 
+    const {
+        index 
+    } = props;
+
     const classes = useStyles();
 
-    const [index, setIndex] = useState(0); 
-
-    const handleClick = (value) => {
-        console.log(value);
-        setIndex(value);
+    useEffect(() => {
         console.log(index);
-    }
+    })
+
     return (
         <Box className={classes.root}>
             <Grid container>
@@ -102,35 +102,35 @@ const Header = (props) => {
                 </Grid>
                 <Grid item xs={8} className={classes.center}>
                     <List className={classes.center}>
-                        <Link to='/private/sendmoney/amount' onClick={() => handleClick(0)}>
+                        <Link to='/private/sendmoney/amount'>
                             <ListItem className={index >=0 ? classes.linkStyle : ''}>
                                 Amount
                             </ListItem>
                         </Link>
                         <Box className={classes.line}></Box>
 
-                        <Link to='/private/sendmoney/recipient' onClick={() => handleClick(1)}>
+                        <Link to='/private/sendmoney/recipient'>
                             <ListItem className={index >=1 ? classes.linkStyle : ''}>
                                 Recipient
                             </ListItem>
                         </Link>
                         <Box className={classes.line}></Box>
 
-                        <Link to='/private/sendmoney/delivery' onClick={() => handleClick(2)}>
+                        <Link to='/private/sendmoney/delivery'>
                             <ListItem className={index >=2 ? classes.linkStyle : ''}>
                                 Delivery
                             </ListItem>
                         </Link>
                         <Box className={classes.line}></Box>
 
-                        <Link to='/private/sendmoney/review' onClick={() => handleClick(3)}>
+                        <Link to='/private/sendmoney/review'>
                             <ListItem className={index >=3 ? classes.linkStyle : ''}>
                                 Review
                             </ListItem>
                         </Link>
                         <Box className={classes.line}></Box>
                         
-                        <Link to='/private/sendmoney/pay' onClick={() => handleClick(4)}>
+                        <Link to='/private/sendmoney/pay'>
                             <ListItem className={index >=4 ? classes.linkStyle : ''}>
                                 Pay
                             </ListItem>

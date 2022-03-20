@@ -30,7 +30,7 @@ export const eraseCookie = (cname) => {
 
 export const authorization = () => {
     return {
-        headers: { Authorization: `Bearer ` + getItem('wallet_token') }
+        headers: { Authorization: `Bearer ` + getCookie('access_token') }
     }
 }
 

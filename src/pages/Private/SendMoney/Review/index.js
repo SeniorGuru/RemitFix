@@ -24,7 +24,7 @@ const Review = (props) => {
 
     return (
         <>
-            <Header/>
+            <Header index={3}/>
             <Box className={classes.root}>
                 <ReviewForm/>
             </Box>

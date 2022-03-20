@@ -24,7 +24,7 @@ const SendAmount = () => {
 
     return (
         <>
-            <Header/>
+            <Header index={0}/>
             <Box className={classes.root}>
                 <SendAmountForm/>            
             </Box>

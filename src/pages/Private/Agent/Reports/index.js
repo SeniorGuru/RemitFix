@@ -18,6 +18,7 @@ const useStyles = makeStyles(() => ({
     root : {
         display : 'flex' ,
         background : '#F3F5F7',
+        height : '100vh'
     }
 })) ;
 

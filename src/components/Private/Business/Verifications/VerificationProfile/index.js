@@ -21,8 +21,6 @@ import { makeStyles }  from '@mui/styles' ;
 
 const useStyles = makeStyles((theme) => ({
     root : {
-        height : 1500,
-
         "& .MuiFormGroup-root" : {
             border : '1px solid lightgray',
             borderRadius : 5,
@@ -42,8 +40,8 @@ const useStyles = makeStyles((theme) => ({
         paddingLeft : '15%'
     },
     description : {
-        paddingLeft : '30%',
-        paddingRight : '30%',
+        paddingLeft : '20%',
+        paddingRight : '20%',
 
         color : 'white',
 

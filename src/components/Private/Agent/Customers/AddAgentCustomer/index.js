@@ -18,13 +18,12 @@ import {
     RadioGroup,
 } from '@mui/material';
 import { makeStyles } from "@mui/styles";
+import MenuBar from "../../../../Common/MenuBar";
 
 const useStyles = makeStyles((theme) => ({
     root : {
         background : '#F4F6F8',
         display : 'flex',
-        paddingLeft : '25%',
-        paddingRight : '25%',
         flexDirection : 'column',
         "& .MuiOutlinedInput-input" : {
         },
@@ -56,6 +55,8 @@ const useStyles = makeStyles((theme) => ({
         paddingLeft : '92px',
         paddingRight : '92px',
         paddingBottom : '130px',
+        marginLeft : '25%',
+        marginRight : '25%',
     },
     title : {
         color : '#1B262C',
@@ -180,6 +181,7 @@ const AddAgentCustomer = () => {
 
     return(
         <Box className = {classes.root}>
+            <MenuBar/>
             <Box className={classes.formContent}>
                 <Box className={classes.title}>
                     Add customer details

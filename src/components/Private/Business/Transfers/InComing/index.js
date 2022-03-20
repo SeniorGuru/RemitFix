@@ -12,10 +12,6 @@ import {
     TableRow
 } from '@mui/material' ;
 
-import  {
-    Search
-} from '@mui/icons-material' ;
-
 import { makeStyles } from '@mui/styles';
 import SelectTransferBox from '../SelectTransferBox';
 
@@ -157,7 +153,7 @@ const InComing = () => {
     }
 
     const handleTableClick = () => {
-        navigate('/private/business/transfers/detailsoutgoing');
+        navigate('/private/business/transfers/detailsincoming');
     }
     
     return (

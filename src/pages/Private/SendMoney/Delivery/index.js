@@ -22,7 +22,7 @@ const Delivery = () => {
 
     return (
         <Box className={classes.root}>
-            <Header/>
+            <Header index={2}/>
             <DeliveryForm/>            
         </Box>
     );

@@ -32,7 +32,7 @@ const spacing = 8;
 
 const theme = createTheme({
     layout: {
-        headerHeight : 60 ,
+        headerHeight : 80 ,
         contentWidth: 1140,
         footerWidth: 1400
     },

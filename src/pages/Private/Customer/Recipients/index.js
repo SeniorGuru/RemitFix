@@ -17,7 +17,6 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles(() => ({
     root : {
-        display : 'flex' ,
     }
 })) ;
 
@@ -26,22 +25,14 @@ const Recipients = () => {
 
     return (
         <Box className={classes.root}>
-            <LeftSideBar />
-            <Box sx={{width : '100%'}}>
-                <Grid container>
-                    <Grid item xs={12} >
-                        <MenuBar />
-                    </Grid>
-                    <Grid item xs={12} >
-                        <Routes>
-                            <Route path="*" element={<RecipientsList />} />
-                            <Route path="/list" element={<RecipientsList />} />
-                            <Route path="/details" element={<RecipientDetails />} />
-                            <Route path="/add" element={<AddCustomerRecipient />} />
-                        </Routes>
-                    </Grid>
-                </Grid>
-            </Box>
+            <Grid item xs={12} >
+                <Routes>
+                    <Route path="*" element={<RecipientsList />} />
+                    <Route path="/list" element={<RecipientsList />} />
+                    <Route path="/details" element={<RecipientDetails />} />
+                    <Route path="/add" element={<AddCustomerRecipient />} />
+                </Routes>
+            </Grid>
         </Box>
     )
 }

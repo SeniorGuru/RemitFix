@@ -18,13 +18,12 @@ import {
     RadioGroup,
 } from '@mui/material';
 import { makeStyles } from "@mui/styles";
+import MenuBar from "../../../../Common/MenuBar";
 
 const useStyles = makeStyles((theme) => ({
     root : {
         background : '#F4F6F8',
         display : 'flex',
-        paddingLeft : '25%',
-        paddingRight : '25%',
         flexDirection : 'column',
         "& .MuiOutlinedInput-input" : {
         },
@@ -49,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
             color : 'white',
             width : '60%',
             height : '47px',
+            textTransform : 'none',
         }
     },
     formContent : {
@@ -56,6 +56,8 @@ const useStyles = makeStyles((theme) => ({
         paddingLeft : '92px',
         paddingRight : '92px',
         paddingBottom : '130px',
+        marginLeft : '25%',
+        marginRight : '25%',
     },
     title : {
         color : '#1B262C',
@@ -108,60 +110,6 @@ const AddBusinessRecipient = () => {
     const classes = useStyles();
     const navigate = useNavigate();
 
-    const [month, setMonth] = useState("Jan");
-
-    const months = [
-        {
-            label : 'Jan',
-            value : 'Jan',
-        },
-        {
-            label : 'Feb',
-            value : 'Feb',
-        },
-        {
-            label : 'Mar',
-            value : 'Mar',
-        },
-        {
-            label : 'Apr',
-            value : 'Apr',
-        },
-        {
-            label : 'May',
-            value : 'May',
-        },
-        {
-            label : 'Jun',
-            value : 'Jun',
-        },
-        {
-            label : 'Jul',
-            value : 'Jul',
-        },
-        {
-            label : 'Aug',
-            value : 'Aug',
-        },
-        {
-            label : 'Sep',
-            value : 'Sep',
-        },
-        {
-            label : 'Oct',
-            value : 'Oct',
-        },
-        {
-            label : 'Nov',
-            value : 'Nov',
-        },
-        {
-            label : 'Dec',
-            value : 'Dec',
-        },
-    ];
-
-
     const mockList = [
             'Family or friends support',
             'Property Payment',
@@ -174,12 +122,9 @@ const AddBusinessRecipient = () => {
         navigate('/private/business/recipients/details');
     }
 
-    const handelChange = (e) => {
-        setMonth(e.target.value);
-    }
-
     return(
         <Box className = {classes.root}>
+                <MenuBar/>
             <Box className={classes.formContent}>
                 <Box className={classes.title}>
                     Add recipient details
@@ -230,45 +175,6 @@ const AddBusinessRecipient = () => {
                             </Box>
                         </Grid>
                     </Grid>
-
-                    <Box className={classes.subTitle}>
-                        Date of birth
-                    </Box>
-                    <Divider/>
-
-                    <Grid container spacing={2}>
-                        <Grid item xs={4}>
-                            <InputLabel >Month</InputLabel>
-                            <FormControl fullWidth>
-                                <TextField 
-                                    select
-                                    value={month}
-                                    onChange={(e) => handelChange(e)}
-                                    SelectProps={{
-                                      native: true,
-                                    }}
-                                >
-                                    {months.map((month, index) => (
-                                        <option key={index} value={month.value}>
-                                            {month.label}
-                                        </option>
-                                    ))}
-                                </TextField>
-                            </FormControl>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <InputLabel >Day</InputLabel>
-                            <FormControl fullWidth variant="standard">
-                                <TextField id="outlined-basic" variant="outlined" />
-                            </FormControl>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <InputLabel >Year</InputLabel>
-                            <FormControl fullWidth variant="standard">
-                                <TextField id="outlined-basic" variant="outlined" />
-                            </FormControl>
-                        </Grid>
-                    </Grid>
                     
                     <Box className={classes.subTitle}>
                         Bank details (optional)
@@ -305,8 +211,8 @@ const AddBusinessRecipient = () => {
                                     name="row-radio-buttons-group"
                                     sx={{width:'100%'}}
                                 >
-                                    <FormControlLabel value="Savings" control={<Radio/>} label="Yes"/>
-                                    <FormControlLabel value="Checkings" control={<Radio/>} sx={{marginLeft:'4% !important'}} label="No"/>
+                                    <FormControlLabel value="Savings" control={<Radio/>} label="Savings"/>
+                                    <FormControlLabel value="Checkings" control={<Radio/>} sx={{marginLeft:'4% !important'}} label="Checkings"/>
                                 </RadioGroup>
                             </Box>
                         </Grid>
@@ -343,7 +249,7 @@ const AddBusinessRecipient = () => {
 
                     <Box className = {classes.button}>
                         <Button variant="contained" color="primary" onClick={() => {handleSaveClick()}}>
-                            Save Customer
+                            Save recipient
                         </Button>
                     </Box>
                 </Box>

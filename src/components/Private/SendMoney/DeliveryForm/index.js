@@ -20,6 +20,7 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
     root : {
+        height : 'calc(100vh - 80px)',
         background : 'white',
         marginLeft : '25%',
         marginRight : '25%',

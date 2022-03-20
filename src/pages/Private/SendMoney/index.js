@@ -6,7 +6,7 @@ import SendAmount from './SendAmount';
 import SendRecipient from './SendRecipient' ;
 import Delivery from './Delivery';
 import Review from './Review';
-import Transfer from './Pay';
+import Pay from './Pay';
 import Confirmation from './Confirmation';
 
 import {makeStyles} from '@mui/styles' ;
@@ -28,7 +28,7 @@ const SendMoney = () => {
                 <Route path="/recipient/*" element={<SendRecipient />} />
                 <Route path="/delivery/*" element={<Delivery/>} />
                 <Route path="/review/*" element={<Review/>} />
-                <Route path="/pay/*" element={<Transfer/>} />
+                <Route path="/pay/*" element={<Pay/>} />
                 <Route path="/confirmation/*" element={<Confirmation/>} />
                 {/* <Route path="/profile/" element={<Profile />} /> */}
             </Routes>

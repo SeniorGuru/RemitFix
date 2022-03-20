@@ -26,12 +26,6 @@ const Customers = () => {
 
     return (
         <Box className={classes.root}>
-            <LeftSideBar />
-            <Box sx={{width : '100%'}}>
-                <Grid container>
-                    <Grid item xs={12} >
-                        <MenuBar />
-                    </Grid>
                     <Grid item xs={12} >
                         <Routes>
                             <Route path="*" element={<CustomersList />} />
@@ -40,8 +34,6 @@ const Customers = () => {
                             <Route path="/add" element={<AddCustomer />} />
                         </Routes>
                     </Grid>
-                </Grid>
-            </Box>
         </Box>
     )
 }
